@@ -9,6 +9,3 @@ CREATE TABLE players (
   email VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE characters(
-  character_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-);
