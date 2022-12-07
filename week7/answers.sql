@@ -1,4 +1,4 @@
--- Create your tables, views, functions and procedures here!
+_-- Create your tables, views, functions and procedures here!
 CREATE SCHEMA destruction;
 USE destruction;
 
@@ -124,15 +124,15 @@ CREATE OR REPLACE VIEW character_items AS
     ORDER BY character_name, item_name;
     
     
-  CREATE OR REPLACE VIEW team_items AS
+CREATE OR REPLACE VIEW team_items AS
     SELECT t.team_id, t.name AS team_name, i.name AS item_name, i.armor, i.damage
     FROM teams t
-    INNER JOIN inventory iv
-    ON c.team_id = iv.team_id
-    INNER JOIN items i
-    ON iv.item_id = i.item_id
+    INNER JOIN team_members te
+    ON t.team_id = te.team_id
+    INNER JOIN characters c
+    ON c.character_id = te.character_id
     UNION
-    SELECT c.character_id, c.name AS character_name, i.name AS item_name, i.armor, i.damage
+   SELECT c.character_id, c.name AS character_name, i.name AS item_name, i.armor, i.damage
     FROM characters c
     INNER JOIN team_members te
     ON t.team_id = te.team_id
@@ -141,6 +141,6 @@ CREATE OR REPLACE VIEW character_items AS
     INNER JOIN equipped e
     ON c.character_id = e.character_id
     INNER JOIN items i
-    ON e.items)id = i.item_id
+    ON e.items_id = i.item_id
     ORDER BY team_name, item_name ASC;
 
