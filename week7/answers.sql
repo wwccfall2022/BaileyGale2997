@@ -22,3 +22,15 @@ CREATE TABLE characters (
       ON DELETE CASCADE
   
 );
+
+CREATE TABLE character_stats (
+  character_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  health INT UNSIGNED NOT NULL, 
+  armor TINYINT UNSIGNED NOT NULL,
+  CONSTRAINT characters_stats_fk_players
+    FOREIGN KEY(character_id)
+      REFERENCES players(character_id)
+      ON UPDATE CASCADE
+      ON DELETE CASCADE
+  
+);
