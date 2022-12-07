@@ -62,3 +62,20 @@ CREATE TABLE items (
   armor INT UNSIGNED NOT NULL, 
   damage INT UNSIGNED NOT NULL
 );
+
+
+CREATE TABLE inventory (
+  inventory_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  character_id INT UNSIGNED NOT NULL,
+  team_id INT UNSIGNED NOT NULL,
+  CONSTRAINT team_members_fk_characters
+    FOREIGN KEY(character_id)
+    REFERENCES characters (character_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT team_members_fk_teams
+    FOREIGN KEY(team_id)
+    REFERENCES teams (team_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
