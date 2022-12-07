@@ -120,4 +120,4 @@ CREATE OR REPLACE VIEW character_items AS
     ON c.character_id = e.character_id
     INNER JOIN items i
     ON e.item_id = i.item_id
-    ORDER BY characer_name, item_name;
+    ORDER BY character_name, item_name;
