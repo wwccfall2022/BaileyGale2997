@@ -79,3 +79,19 @@ CREATE TABLE inventory (
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
+
+CREATE TABLE equipped (
+  equipped INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  character_id INT UNSIGNED NOT NULL,
+  item_id INT UNSIGNED NOT NULL,
+  CONSTRAINT equipped_fk_characters
+    FOREIGN KEY(character_id)
+    REFERENCES characters (character_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT equipped_fk_teams
+    FOREIGN KEY(item_id)
+    REFERENCES items (item_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
