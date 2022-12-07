@@ -68,12 +68,12 @@ CREATE TABLE inventory (
   inventory_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   character_id INT UNSIGNED NOT NULL,
   team_id INT UNSIGNED NOT NULL,
-  CONSTRAINT team_members_fk_characters
+  CONSTRAINT inventory_fk_characters
     FOREIGN KEY(character_id)
     REFERENCES characters (character_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,
-  CONSTRAINT team_members_fk_teams
+  CONSTRAINT inventory_fk_teams
     FOREIGN KEY(team_id)
     REFERENCES teams (team_id)
     ON UPDATE CASCADE
