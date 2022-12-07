@@ -34,3 +34,8 @@ CREATE TABLE character_stats (
       ON DELETE CASCADE
   
 );
+
+CREATE TABLE teams (
+  team_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR (30) NOT NULL
+);
