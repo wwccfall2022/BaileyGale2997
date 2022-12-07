@@ -29,7 +29,7 @@ CREATE TABLE character_stats (
   armor TINYINT UNSIGNED NOT NULL,
   CONSTRAINT characters_stats_fk_players
     FOREIGN KEY(character_id)
-      REFERENCES players(character_id)
+      REFERENCES characters (character_id)
       ON UPDATE CASCADE
       ON DELETE CASCADE
   
