@@ -116,6 +116,7 @@ CREATE OR REPLACE VIEW character_items AS
     ON iv.item_id = i.item_id
     UNION
     SELECT c.character_id, c.name AS character_name, i.name AS item_name, i.armor, i.damage
+    FROM characters c
     INNER JOIN equipped e
     ON c.character_id = e.character_id
     INNER JOIN items i
