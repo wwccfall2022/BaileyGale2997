@@ -39,3 +39,19 @@ CREATE TABLE teams (
   team_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR (30) NOT NULL
 );
+
+CREATE TABLE team_members(
+  team_member_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  team_id INT UNSIGNED NOT NULL,
+  character_id INT UNSIGNED NOT NULL,
+  CONSTRAINT team_members_fk_teams
+    FOREIGN KEY(team_id)
+    REFRENCES teams (team_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT team_members_fk_characters
+    FOREIGN KEY(character_id)
+    REFRENCES characters (character_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
