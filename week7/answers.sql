@@ -46,12 +46,12 @@ CREATE TABLE team_members(
   character_id INT UNSIGNED NOT NULL,
   CONSTRAINT team_members_fk_teams
     FOREIGN KEY(team_id)
-    REFRENCES teams (team_id)
+    REFERENCES teams (team_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,
   CONSTRAINT team_members_fk_characters
     FOREIGN KEY(character_id)
-    REFRENCES characters (character_id)
+    REFERENCES characters (character_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
