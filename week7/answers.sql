@@ -74,8 +74,8 @@ CREATE TABLE inventory (
     ON UPDATE CASCADE
     ON DELETE CASCADE,
   CONSTRAINT inventory_fk_teams
-    FOREIGN KEY(team_id)
-    REFERENCES teams (team_id)
+    FOREIGN KEY(item_id)
+    REFERENCES item (item_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
