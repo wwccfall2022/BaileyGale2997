@@ -145,6 +145,6 @@ CREATE OR REPLACE VIEW team_items AS
     INNER JOIN equipped e
     ON c.character_id = e.character_id
     INNER JOIN items i
-    ON e.items_id = i.item_id
+    ON e.item_id = i.item_id
     ORDER BY team_name, item_name ASC;
 
