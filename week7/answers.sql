@@ -17,7 +17,7 @@ CREATE TABLE characters (
   level TINYINT UNSIGNED NOT NULL,
   CONSTRAINT characters_fk_players
     FOREIGN KEY(player_id)
-      REFRENCES players(player_id)
+      REFERENCES players(player_id)
       ON UPDATE CASCADE
       ON DELETE CASCADE
   
