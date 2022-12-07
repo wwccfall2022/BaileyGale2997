@@ -95,3 +95,14 @@ CREATE TABLE equipped (
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
+
+CREATE TABLE winners (
+  character_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(30) NOT NULL, 
+  CONSTRAINT winners_fk_character
+      FOREIGN KEY(character_id)
+      REFERENCES characters (character_id)
+      ON UPDATE CASCADE
+      ON DELETE CASCADE
+  
+);
