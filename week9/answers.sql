@@ -65,3 +65,22 @@ CREATE TABLE notifications(
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
+
+
+CREATE OR REPLACE VIEW notification_posts AS
+  SELECT n.user_id, u.first_name AS first_name, u.last_name AS last_name, p.post_id, p.content
+  FROM notifications n
+    INNER JOIN posts p
+    ON n.user_id = p.user_id
+    INNER JOIN users u
+    ON p.item_id = u.item_id
+    UNION
+    SELECT n.user_id, u.first_name AS first_name, u.last_name AS last_name, p.post_id, p.content
+    FROM notifications n
+    INNER JOIN posts p
+    ON n.user_id = p.user_id
+    INNER JOIN users u
+    ON p.item_id = u.item_id
+    ORDER BY first_name, last_name ASC ;
+
+
