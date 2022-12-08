@@ -59,7 +59,7 @@ CREATE TABLE notifications(
     REFERENCES users (user_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,
-  CONSTRAINT notifications_fk_post
+  CONSTRAINT notifications_fk_posts
     FOREIGN KEY(post_id)
     REFERENCES posts (post_id)
     ON UPDATE CASCADE
