@@ -149,7 +149,7 @@ CREATE OR REPLACE VIEW team_items AS
     ORDER BY team_name, item_name ASC;
     
     
-DELIMITTER ;;
+DELIMITER ;;
   CREATE FUNCTION armor_total(id INT UNSIGNED)
   RETURNS INT UNSIGNED
   DETERMINISTIC
@@ -169,7 +169,7 @@ DELIMITTER ;;
     RETURN total_armor;
   END;;
   
-DELIMITTER ;
+DELIMITER ;
 
 
     
