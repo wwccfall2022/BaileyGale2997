@@ -157,7 +157,7 @@ DELIMITER ;;
     DECLARE character_armor INT UNSIGNED;
     DECLARE equipped_armor INT UNSIGNED;
     DECLARE total_armor INT UNSIGNED;
-  SELECT armor INTO charactor_armor
+  SELECT armor INTO character_armor
     FROM character_stats
     WHERE character_id = id;
   SELECT SUM(i.armor) INTO equipped_armor
