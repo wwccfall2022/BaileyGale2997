@@ -193,14 +193,14 @@ SET total_damage = damage - armor;
 
 SELECT health INTO new_health
   FROM character_stats
-  WHERE character_id = atached_character_id
+  WHERE character_id = atached_character_id;
   
-IF total_damage >0 THEN
+IF total_damage > 0 THEN
   SET total_health = new_health - total_damage;
   UPDATE character_stats SET health = total_health WHERE character_id = attacked_character_id;
   
   IF total_damage >= new_health THEN
-  DELETE FROM character WHERE character_id = attacked_character_id;
+  DELETE FROM characters WHERE character_id = attacked_character_id;
   END IF;
 END IF;
 
