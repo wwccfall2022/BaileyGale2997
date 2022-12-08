@@ -41,7 +41,7 @@ CREATE TABLE posts (
   created_on TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_on TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
   content VARCHAR(30) NOT NULL, 
-  CONSTRAINT users_fk_players
+  CONSTRAINT users_fk_posts
     FOREIGN KEY(user_id)
       REFERENCES users(user_id)
       ON UPDATE CASCADE
