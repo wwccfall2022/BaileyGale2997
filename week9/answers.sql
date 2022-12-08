@@ -38,9 +38,9 @@ CREATE TABLE friends(
 CREATE TABLE posts(
   post_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL, 
-  content VARCHAR(50) NOT NULL,
   created_on TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_on TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(), 
+  content VARCHAR(50) NOT NULL,
   CONSTRAINT users_fk_posts
     FOREIGN KEY(user_id)
       REFERENCES users(user_id)
