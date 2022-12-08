@@ -40,9 +40,9 @@ CREATE TABLE posts(
   user_id INT UNSIGNED NOT NULL, 
   created_on TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_on TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(), 
-  content VARCHAR(50) NOT NULL,
-  CONSTRAINT users_fk_posts
-    FOREIGN KEY(user_id)
+  content VARCHAR(100) NOT NULL,
+  CONSTRAINT post_fk_users
+    FOREIGN KEY (user_id)
       REFERENCES users(user_id)
       ON UPDATE CASCADE
       ON DELETE CASCADE
@@ -69,18 +69,18 @@ CREATE TABLE notifications(
 
 CREATE OR REPLACE VIEW notification_posts AS
   SELECT n.user_id, u.first_name AS first_name, u.last_name AS last_name, p.post_id, p.content
-  FROM notifications n
+  FROM users u
     INNER JOIN posts p
-    ON n.user_id = p.user_id
-    INNER JOIN users u
-    ON p.user_id = u.user_id
+    ON u.user_id = p.user_id
+    INNER JOIN notifications n
+    ON p.post_id = n.post_id
     UNION
     SELECT n.user_id, u.first_name AS first_name, u.last_name AS last_name, p.post_id, p.content
-    FROM notifications n
+    FROM users u
     INNER JOIN posts p
-    ON n.user_id = p.user_id
-    INNER JOIN users u
-    ON p.user_id = u.user_id
+    ON u.user_id = p.user_id
+    INNER JOIN notifications n
+    ON p.post_id = n.post_id
     ORDER BY first_name, last_name ASC ;
 
 
