@@ -205,7 +205,7 @@ IF total_damage > 0 THEN
 END IF;
 
 END;;
-DELIMITER;
+
 
 
 
