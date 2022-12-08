@@ -28,11 +28,6 @@ CREATE TABLE friends(
   user_friend_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
   friend_id INT UNSIGNED NOT NULL,
-  CONSTRAINT friends_fk_teams
-    FOREIGN KEY(user_id)
-    REFERENCES users (user_id)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE,
   CONSTRAINT friends_fk_characters
     FOREIGN KEY(user_id)
     REFERENCES users (user_id)
