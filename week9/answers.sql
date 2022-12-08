@@ -7,15 +7,15 @@ CREATE TABLE users (
   user_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(30) NOT NULL, 
   last_name VARCHAR(30) NOT NULL, 
-  email VARCHAR(50) NOT NULL
-  created_on ....DATEANDTIMECODE
+  email VARCHAR(50) NOT NULL,
+  created_on TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE sessions (
   session_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL, 
-  created_on DATEANDTIMETIMEOFINSERT 
-  updated_on DATEANDTIMEOFINSERTORLASTUPDATE
+  created_on TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_on TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
   CONSTRAINT sessions_fk_users
     FOREIGN KEY(user_id)
       REFERENCES users (user_id)
@@ -43,10 +43,9 @@ CREATE TABLE friends(
 CREATE TABLE posts (
   post_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL, 
-  created_on ....
-  updated_on ....
+  created_on TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_on TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
   content VARCHAR(30) NOT NULL, 
-  level TINYINT UNSIGNED NOT NULL,
   CONSTRAINT users_fk_players
     FOREIGN KEY(user_id)
       REFERENCES users(user_id)
