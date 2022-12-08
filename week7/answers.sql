@@ -196,7 +196,7 @@ SELECT health INTO new_health
   WHERE character_id = atached_character_id
   
 IF total_damage >0 THEN
-  SET total_health = new_health-total_damage;
+  SET total_health = new_health - total_damage;
   UPDATE character_stats SET health = total_health WHERE character_id = attacked_character_id;
   
   IF total_damage >= new_health THEN
